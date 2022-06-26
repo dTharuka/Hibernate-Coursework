@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="contextStd" prefHeight="573.0" prefWidth="926.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentRegFormController">
+   <children>
+      <Label layoutX="322.0" layoutY="15.0" text="STUDENT REGISTRATION" textFill="#534f4b">
+         <font>
+            <Font name="Arial Bold" size="23.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtsName" layoutX="88.0" layoutY="119.0" prefHeight="33.0" prefWidth="299.0" promptText="Name" style="-fx-border-color: #b5b5b5; -fx-background-color: white;" />
+      <TextField fx:id="txtAge" layoutX="88.0" layoutY="160.0" prefHeight="33.0" prefWidth="125.0" promptText="Age" style="-fx-border-color: #b5b5b5; -fx-background-color: white;" />
+      <TextField fx:id="txtPhone" layoutX="219.0" layoutY="160.0" prefHeight="33.0" prefWidth="168.0" promptText="Phonr Number" style="-fx-border-color: #b5b5b5; -fx-background-color: white;" />
+      <TextField fx:id="txtNIC" layoutX="88.0" layoutY="200.0" prefHeight="25.0" prefWidth="133.0" promptText="NIC" style="-fx-border-color: #b5b5b5; -fx-background-color: white;" />
+      <JFXDatePicker fx:id="dob" defaultColor="#534f4b" layoutX="249.0" layoutY="200.0" prefHeight="25.0" prefWidth="118.0" promptText="Date of BIrth" />
+      <TextArea fx:id="txtAddress" layoutX="88.0" layoutY="243.0" prefHeight="50.0" prefWidth="299.0" promptText="Address" style="-fx-border-color: #b5b5b5; -fx-background-color: white;" />
+      <JFXComboBox fx:id="cmpProgram" layoutX="520.0" layoutY="188.0" prefHeight="25.0" prefWidth="156.0" promptText="Room" />
+      <Label layoutX="566.0" layoutY="233.0" text="Room Qty - ">
+         <font>
+            <Font name="Arial Bold" size="17.0" />
+         </font></Label>
+      <Label fx:id="txtFee" layoutX="793.0" layoutY="188.0" text="000 000" textFill="#534f4b">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="749.0" layoutY="190.0" text="LKR" textFill="#534f4b">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="regID" buttonType="RAISED" layoutX="713.0" layoutY="271.0" onMouseClicked="#register" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #534f4b; -fx-background-radius: 0.5em;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField fx:id="txtID" layoutX="88.0" layoutY="62.0" onAction="#searchOnAction" prefHeight="33.0" prefWidth="179.0" promptText="Search" style="-fx-background-color: white; -fx-border-color: #b5b5b5;" />
+      <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="560.0" layoutY="271.0" onMouseClicked="#deleteStudent" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #ff5959; -fx-background-radius: 0.5em;" text="DELETE" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="cmbRegProgram" focusColor="#534f4b" layoutX="521.0" layoutY="146.0" prefHeight="25.0" prefWidth="156.0" promptText="Previous Room" unFocusColor="#534f4b" />
+      <TextField fx:id="txtRegDate" layoutX="745.0" layoutY="105.0" prefHeight="33.0" prefWidth="110.0" promptText="Date" style="-fx-border-color: #534f4b; -fx-background-color: white;" />
+      <Label layoutX="711.0" layoutY="154.0" text="Date : ">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbRegDate" layoutX="773.0" layoutY="154.0" text="28/12/2021" textFill="#534f4b">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="16.0" onMouseClicked="#goToMain" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #534f4b;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="lbID" layoutX="88.0" layoutY="95.0" prefHeight="17.0" prefWidth="24.0" text="ID : ">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="lbsID" layoutX="129.0" layoutY="96.0" text="S001" textFill="#534f4b">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="clearBtn" buttonType="RAISED" layoutX="291.0" layoutY="62.0" onMouseClicked="#clear" prefHeight="35.0" prefWidth="96.0" style="-fx-background-color: #534f4b;" text="Clear" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="key_money" layoutX="520.0" layoutY="106.0" promptText="key money" />
+      <TextField fx:id="genderTxt" layoutX="521.0" layoutY="64.0" promptText="Gender" />
+      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="742.0" layoutY="62.0" onMouseClicked="#UpdateStudent" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #534f4b; -fx-background-radius: 0.5em;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Separator layoutX="460.0" layoutY="72.0" orientation="VERTICAL" prefHeight="211.0" prefWidth="6.0" />
+      <TableView fx:id="studentTBL" layoutX="20.0" layoutY="317.0" prefHeight="240.0" prefWidth="886.0">
+        <columns>
+          <TableColumn fx:id="stuIdCol" prefWidth="75.0" text="StudentID" />
+          <TableColumn fx:id="NameCol" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="ageCol" prefWidth="75.0" text="Age" />
+            <TableColumn fx:id="GenderCol" prefWidth="75.0" text="Gender" />
+            <TableColumn fx:id="dobCol" prefWidth="75.0" text="DOB" />
+            <TableColumn fx:id="NicCol" prefWidth="75.0" text="NIC" />
+            <TableColumn fx:id="k_moneyCol" prefWidth="75.0" text="KeyMoney" />
+            <TableColumn fx:id="AddressCol" prefWidth="75.0" text="Address" />
+            <TableColumn fx:id="contactCol" prefWidth="75.0" text="Contact" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <TextField fx:id="txtRQty" layoutX="689.0" layoutY="227.0" prefHeight="31.0" prefWidth="81.0" />
+   </children>
+</AnchorPane>
