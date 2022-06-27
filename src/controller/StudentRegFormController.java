@@ -317,7 +317,9 @@ public class StudentRegFormController {
                             reserveBO.generateNewRoomId(),
                             lbsID.getText(),
                             cmpProgram.getSelectionModel().getSelectedItem(),
-                            lbRegDate.getText(), Double.parseDouble(key_money.getText()
+                            lbRegDate.getText(),
+//                            Double.parseDouble(key_money.getText()
+                            Double.parseDouble(txtFee.getText()
 
                     ));
                 } catch (SQLException | ClassNotFoundException throwables) {

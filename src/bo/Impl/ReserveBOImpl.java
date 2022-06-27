@@ -1,6 +1,7 @@
 package bo.Impl;
 
 import bo.ReserveBO;
+import controller.StudentRegFormController;
 import dao.DAOFactory;
 import dao.custom.RoomDAO;
 import dao.custom.ReserveDAO;
@@ -24,6 +25,8 @@ public class ReserveBOImpl implements ReserveBO {
     public boolean add(ReserveDTO reserveDTO) throws Exception {
         Student student = studentDAO.find(reserveDTO.getSID());
         Room room = roomDAO.find(reserveDTO.getRID());
+        room.setRoomQty( room.getRoomQty() - 1);
+        roomDAO.update(room);
 
         return reserveDAO.add(new Reserve(
                 reserveDTO.getId(),
@@ -31,6 +34,8 @@ public class ReserveBOImpl implements ReserveBO {
                 room,
                 reserveDTO.getDate(),
                 reserveDTO.getKeyMoney()
+
+
         ));
     }
 
@@ -48,7 +53,8 @@ public class ReserveBOImpl implements ReserveBO {
                     reserve.getId(),
                     reserve.getSID().getStudentID(),
                     reserve.getRID().getRoomID(),
-                    reserve.getDate(), reserve.getKey_money()
+                    reserve.getDate(),
+                    reserve.getKey_money()
             ));
         }
         return reserveDTOS;
