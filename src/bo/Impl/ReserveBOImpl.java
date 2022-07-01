@@ -67,6 +67,18 @@ public class ReserveBOImpl implements ReserveBO {
 
     @Override
     public boolean delete(String id ) throws Exception {
+//        =========================================================================
+//        ReserveDTO reserveDTO=new ReserveDTO();
+////        Student student ;
+////        Student student2 =new Student();
+//        this.s1=id;
+//        if(s1.equals( studentDAO.find(reserveDTO.getSID()))){
+//            Room room = roomDAO.find(reserveDTO.getRID());
+//            room.setRoomQty( room.getRoomQty() + 1);
+//            roomDAO.update(room);
+//
+//        }
+//=================================================================================
         return reserveDAO.delete(id);
 //
     }

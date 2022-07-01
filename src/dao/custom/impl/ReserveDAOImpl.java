@@ -50,6 +50,13 @@ public class ReserveDAOImpl implements ReserveDAO {
         }
 
 
+
+//        =====================================
+//        Reserve s1=find(s);
+//        Room s2=s1.getRID();
+//        s2.setRoomQty(s2.getRoomQty()+1);
+
+//        =====================================
         transaction.commit();
         session.close();
         return bool;
@@ -67,6 +74,7 @@ public class ReserveDAOImpl implements ReserveDAO {
         session.close();
         return reserve;
     }
+
 
     @Override
     public List<Reserve> findAll() throws Exception {
@@ -137,4 +145,7 @@ public class ReserveDAOImpl implements ReserveDAO {
     public Student getStudent(String id) throws Exception {
         return studentDAO.find(id);
     }
+
+
+
 }

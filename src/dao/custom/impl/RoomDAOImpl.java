@@ -53,23 +53,26 @@ public class RoomDAOImpl implements RoomDAO {
 
     @Override
     public boolean delete(String s) throws Exception {
-        boolean bool = false;
+//        boolean bool = false;
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createQuery("DELETE FROM room WHERE roomID=:id");
+//        Query query = session.createQuery("DELETE FROM room WHERE roomID=:id");
+//
+//        query.setParameter("id", s);
+//
+//        if (query.executeUpdate() > 0) {
+//            bool = true;
+//        }
 
-        query.setParameter("id", s);
 
-        if (query.executeUpdate() > 0) {
-            bool = true;
-        }
-
+        Room room = session.load(Room.class,s);
+        session.remove(room);
 //        session.delete(s);
 
         transaction.commit();
         session.close();
-        return bool;
+        return true;
 //        return true;
     }
 
@@ -121,5 +124,7 @@ public class RoomDAOImpl implements RoomDAO {
         }
         return "R-001";
     }
+
+
 
 }

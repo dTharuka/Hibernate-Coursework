@@ -5,12 +5,19 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="contextPro" prefHeight="459.0" prefWidth="690.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoomsFormController">
+<AnchorPane fx:id="contextPro" prefHeight="459.0" prefWidth="690.0" style="-fx-background-color: #ffffff;" stylesheets="@styls/styl2.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RoomsFormController">
    <children>
-      <TableView fx:id="tblProgram" layoutX="21.0" layoutY="133.0" prefHeight="272.0" prefWidth="651.0">
+      <ImageView fitHeight="430.0" fitWidth="690.0" layoutY="-3.0" opacity="0.47" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/female-character-sitting-with-book-bunk-bed-dormitory-room_1016-6961.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblProgram" layoutX="21.0" layoutY="133.0" opacity="0.67" prefHeight="272.0" prefWidth="651.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="139.0" text="Room_Type_ID" />
           <TableColumn fx:id="colName" prefWidth="247.0" text="Type" />
@@ -21,9 +28,8 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TextField fx:id="txtName" layoutX="128.0" layoutY="77.0" prefHeight="33.0" prefWidth="151.0" promptText="Type" style="-fx-background-color: white; -fx-border-color: #b5b5b5;" />
-      <TextField fx:id="txtDuration" layoutX="289.0" layoutY="77.0" prefHeight="25.0" prefWidth="104.0" promptText="Qty" style="-fx-background-color: white; -fx-border-color: #b5b5b5;" />
-      <TextField fx:id="txtFee" layoutX="409.0" layoutY="77.0" prefHeight="25.0" prefWidth="128.0" promptText="Key money" style="-fx-background-color: white; -fx-border-color: #b5b5b5;" />
+      <TextField fx:id="txtDuration" layoutX="289.0" layoutY="77.0" onKeyReleased="#text_Field_Checker_In_Room" prefHeight="25.0" prefWidth="104.0" promptText="Qty" style="-fx-background-color: white; -fx-border-color: #b5b5b5;" />
+      <TextField fx:id="txtFee" layoutX="409.0" layoutY="77.0" onKeyReleased="#text_Field_Checker_In_Room" prefHeight="25.0" prefWidth="128.0" promptText="Key money" style="-fx-background-color: white; -fx-border-color: #b5b5b5;" />
       <Label layoutX="25.0" layoutY="81.0" text="ID : ">
          <font>
             <Font name="Arial Bold" size="14.0" />
@@ -34,25 +40,24 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnadd" buttonType="RAISED" layoutX="548.0" layoutY="78.0" onMouseClicked="#addRoom" prefHeight="23.0" prefWidth="59.0" style="-fx-background-color: #534f4b;" text="ADD" textFill="WHITE">
+      <JFXButton fx:id="btnadd" buttonType="RAISED" layoutX="594.0" layoutY="14.0" onMouseClicked="#addRoom" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: E60965;" text="ADD" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </JFXButton>
-      <AnchorPane layoutY="421.0" prefHeight="38.0" prefWidth="690.0" style="-fx-background-color: #534f4b;">
-         <children>
-            <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="8.0" onMouseClicked="#backToMain" prefHeight="6.0" prefWidth="59.0" style="-fx-background-color: #534f4b;" text="Back" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="12.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="613.0" layoutY="8.0" onMouseClicked="#deleteRoom" prefHeight="6.0" prefWidth="59.0" style="-fx-background-color: #ff5959;" text="Delete" textFill="WHITE">
-               <font>
-                  <Font name="Arial Bold" size="12.0" />
-               </font>
-            </JFXButton>
-         </children></AnchorPane>
-      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="614.0" layoutY="78.0" onMouseClicked="#updateRoom" prefHeight="23.0" prefWidth="59.0" style="-fx-background-color: #534f4b;" text="Update" textFill="WHITE">
+      <AnchorPane layoutY="426.0" prefHeight="33.0" prefWidth="690.0" style="-fx-background-color: E60965;" />
+      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="595.0" layoutY="54.0" onMouseClicked="#updateRoom" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: E60965;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="txtName" layoutX="122.0" layoutY="77.0" onKeyReleased="#text_Field_Checker_In_Room" prefHeight="33.0" prefWidth="151.0" promptText="Type" style="-fx-background-color: white; -fx-border-color: #b5b5b5;" />
+      <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="596.0" layoutY="94.0" onMouseClicked="#deleteRoom" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #f80808;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="17.0" layoutY="15.0" onMouseClicked="#backToMain" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: E60965;" text="Back" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>

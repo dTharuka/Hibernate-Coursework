@@ -45,8 +45,8 @@ public class RoomBOImpl implements RoomBO {
 
     @Override
     public RoomDTO find(String id) throws Exception {
-        RoomDAO r1 = new RoomDAOImpl();
-        Room r2 = r1.find(id);
+//        RoomDAO r1 = new RoomDAOImpl();
+        Room r2 = roomDAO.find(id);
         return new RoomDTO(
                 r2.getRoomID(),
                 r2.getRoomType(),
@@ -55,19 +55,13 @@ public class RoomBOImpl implements RoomBO {
         );
 
 
-//        return null;
+
     }
 
     @Override
     public boolean delete(String id) throws Exception {
         return roomDAO.delete(id);
-//        return roomDAO.update(new Room(
-//                roomDTO.getRoomID(),
-//                roomDTO.getRoomType(),
-//                roomDTO.getRoomQty(),
-//                roomDTO.getMonthlyRent()
-////
-//        ));
+
     }
 
     @Override

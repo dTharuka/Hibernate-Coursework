@@ -6,4 +6,5 @@ import entity.Room;
 public interface RoomDAO extends SuperDAO<Room, String> {
 
 
+
 }

@@ -13,7 +13,7 @@ public class AppRunner extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("view/MainForm.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(this.getClass().getResource("view/LoginPageForm.fxml"))));
         primaryStage.setTitle("D24 Room Reservation");
         primaryStage.centerOnScreen();
         primaryStage.show();

@@ -9,6 +9,8 @@ import bo.StudentBO;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
+import dao.custom.RoomDAO;
+import dao.custom.impl.RoomDAOImpl;
 import dto.ReserveDTO;
 import dto.RoomDTO;
 import dto.StudentDTO;
@@ -19,18 +21,18 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import util.LoadFXMLFile;
+import util.ValidationUtil;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.regex.Pattern;
 
 public class StudentRegFormController {
     public static int temp01 = 0;//==========================================================
@@ -42,7 +44,7 @@ public class StudentRegFormController {
     public TextField txtAge;
     public TextField txtPhone;
     public TextField txtNIC;
-    public TextArea txtAddress;
+//    public TextArea txtAddress;
     public TextField key_money;
     public Label lbID;
     public JFXDatePicker dob;
@@ -71,6 +73,8 @@ public class StudentRegFormController {
     public JFXButton btnUpdate;
     public JFXButton clearBtn;
     public TextField txtRQty;
+    private final LinkedHashMap<TextField, Pattern> studentLHashmap = new LinkedHashMap<>();
+    public TextField txtAddress;
     int stRowNumber;
     ObservableList<StudentDTO> stObList = FXCollections.observableArrayList();
 
@@ -186,6 +190,22 @@ public class StudentRegFormController {
             validate(KeyCode.ENTER, txtNIC, "^[0-9]{10}$", txtPhone);
             txtPhone.setStyle("-jfx-unfocus-color: #89f0c9");
         });
+        validation_Detail_Checked_Student();
+    }
+
+
+    public void text_Field_Checker_In_Student(KeyEvent keyEvent) {
+        ValidationUtil.textFieldChecker(studentLHashmap, regID, keyEvent);
+    }
+
+    private void validation_Detail_Checked_Student() {
+        studentLHashmap.put(txtsName, Pattern.compile("^[A-z ]{3,20}$"));
+        studentLHashmap.put(txtAge, Pattern.compile("^[0-9]{1,2}$"));
+        studentLHashmap.put(txtPhone, Pattern.compile("^([0-9]{10})$"));//
+        studentLHashmap.put(txtNIC, Pattern.compile("^[0-9]{12}$"));//
+        studentLHashmap.put(txtAddress, Pattern.compile("^[A-z ]{5,20}$"));
+        studentLHashmap.put(genderTxt, Pattern.compile("^((male)|(female))$"));
+        studentLHashmap.put(key_money, Pattern.compile("^[0-9]{3,10}$"));
     }
 
     //================================================================
@@ -398,6 +418,7 @@ public class StudentRegFormController {
     }
 
     public void deleteStudent(MouseEvent mouseEvent) {
+
         try {
             List<ReserveDTO> all = reserveBO.findAll();//==============================================
             all.removeIf(reserveDTO -> !reserveDTO.getSID().equals(lbsID.getText()));
@@ -410,6 +431,10 @@ public class StudentRegFormController {
                 boolean bool = false;
                 for (ReserveDTO reserveDTO : all) {
                     bool = reserveBO.delete(reserveDTO.getId());//----------------
+//                    RoomBO roomBO = new RoomBOImpl();
+                    RoomDTO roomDTO = roomBO.find(reserveDTO.getRID());
+                    roomDTO.setRoomQty(roomDTO.getRoomQty()+1);
+                    roomBO.update(roomDTO);
                 }
                 if (bool && studentBO.delete(lbsID.getText())) {
 
@@ -417,7 +442,8 @@ public class StudentRegFormController {
                     alert2.setTitle("Message");
                     alert2.setContentText("Saved..");
                     alert2.show();
-
+//                    RoomsFormController r1=new RoomsFormController();
+//                    txtRQty.setText(String.valueOf(Integer.parseInt(r1.colDuration.getText())+1));
                     loadStudentTable();
 
 //                } else {

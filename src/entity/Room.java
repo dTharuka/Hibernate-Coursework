@@ -45,16 +45,5 @@ public class Room implements SuperEntity {
         this.monthlyRent = monthlyRent;
     }
 
-    //    public Room(String roomID, String roomType, String roomQty, double monthlyRent) {
-//        this.roomID = roomID;
-//        this.roomType = roomType;
-//        this.roomQty = roomQty;
-//        this.monthlyRent = monthlyRent;
-//    }
-//
-//    public Room(String roomType, String roomQty, double monthlyRent) {
-//        this.roomType = roomType;
-//        this.roomQty = roomQty;
-//        this.monthlyRent = monthlyRent;
-//    }
+
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="loginContext" prefHeight="400.0" prefWidth="382.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginPageFormController">
+   <children>
+      <TextField fx:id="txtName" layoutX="78.0" layoutY="254.0" prefHeight="31.0" prefWidth="235.0" promptText="User Name" />
+      <PasswordField fx:id="txtPwd" layoutX="79.0" layoutY="307.0" prefHeight="31.0" prefWidth="235.0" promptText="Password" />
+      <Button layoutX="292.0" layoutY="348.0" mnemonicParsing="false" onAction="#logInOnAction" style="-fx-background-color: E60965;" text="Login" textFill="WHITE" />
+      <Label fx:id="lblHide" layoutX="281.0" layoutY="307.0" onMousePressed="#showPasswordOnMousePressed" onMouseReleased="#hidePasswordOnMousePressed" prefHeight="31.0" prefWidth="31.0">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../assets/hide.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <ImageView fitHeight="251.0" fitWidth="382.0" pickOnBounds="true">
+         <image>
+            <Image url="@../assets/follow-me-social-business-theme-design_24877-50426.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
